@@ -29,9 +29,18 @@
   color: white;
 }
 
+.carousel-filter button.selected {
+  border-width: 2px;
+  border-color: pink !important;
+}
+
 .carousel-slide {
   text-align: center;
   margin: 5px 12px;
+}
+
+.carousel-slide.slick-current {
+  outline: 2px solid #3c5cb5;
 }
 
 .carousel-slide img {
@@ -40,6 +49,7 @@
   height: auto;
   cursor: pointer;
 }
+
 
 .slick-arrow {
   transform: scale(1.5);
@@ -52,4 +62,10 @@
 
 .carousel-slide .slick-active {
   transform: scale(1.1);
+}
+
+#Rectangle,
+.inputFileReader,
+.watermarkContainer .ng-scope {
+  display: none;
 }

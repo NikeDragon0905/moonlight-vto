@@ -1,5 +1,7 @@
 'use strict';
 
+var filter = 'all';
+
 const glassList = [
   {
     id: '166233101',
@@ -25,11 +27,42 @@ const glassList = [
     id: '166233115',
     src: 'img/166233115.webp',
     type: 'man',
+  },{
+    id: '166233107',
+    src: 'img/166233107.webp',
+    type: 'woman',
+  },
+  {
+    id: '166233110',
+    src: 'img/166233110.webp',
+    type: 'man',
+  },
+  {
+    id: '166233115',
+    src: 'img/166233115.webp',
+    type: 'man',
+  },{
+    id: '166233107',
+    src: 'img/166233107.webp',
+    type: 'woman',
+  },
+  {
+    id: '166233110',
+    src: 'img/166233110.webp',
+    type: 'man',
+  },
+  {
+    id: '166233115',
+    src: 'img/166233115.webp',
+    type: 'man',
   },
 ];
 
 const carouselSetting = {
-  infinite: true,
+  // dots: true,
+  centerMode: true,
+  enterPadding: '25%',
+  infinite: false,
   speed: 300,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -58,6 +91,7 @@ const carouselSetting = {
 };
 
 const $carousel = $('#carousel');
+const $filter = $('.carousel-filter');
 const $openModalBtn = $('#openVirtualRoom');
 
 const initCarousel = () => {
@@ -67,16 +101,28 @@ const initCarousel = () => {
 
   let carouselContent = '';
   glassList.map(item => {
-    carouselContent += `<div class="carousel-slide">
-      <img src="${item.src}" alt="glass-item" data-id="${item.id}">
-    </div>`;
+    if(filter === 'all' || item.type === filter) { 
+      carouselContent += `<div class="carousel-slide">
+        <img src="${item.src}" alt="glass-item" data-id="${item.id}">
+      </div>`;
+    }
   });    
 
   $carousel.html(carouselContent);
+  $carousel.slick(carouselSetting);
+  $carousel.find('.slick-current').click();
 };
 
 $(document).ready(function () {
-  
+  $filter.on('click', 'button', function() {
+    // change selected fitler style
+    $filter.find('button').removeClass('selected');
+    $(this).addClass('selected');
+    // refresh carousel
+    const role = $(this).data('role');
+    filter = role;
+    initCarousel(role);
+  });
   $carousel.on('afterChange', function(event, slick, currentSlide) {
     // `currentSlide` contains the index of the currently selected slide
     const { id } = glassList[currentSlide];
@@ -84,16 +130,16 @@ $(document).ready(function () {
     fitmixInstance.setFrame(id);
   });
 
-  $carousel.on('click', '.carousel-slide img', function() {
+  $carousel.on('click', '.carousel-slide', function() {
+    const slideIndex = $(this).data('slick-index');
+    $carousel.slick('slickGoTo', slideIndex);
+
     const id = $(this).attr('data-id');
   });
   
   $openModalBtn.click(function() {
     // check all settings on Slick site
     initCarousel();
-    $carousel.slick(carouselSetting);
-
-    
     // show virtual room modal
     const $virtualRoom = $('#virtualRoom');
     $virtualRoom.modal({backdrop: false});
