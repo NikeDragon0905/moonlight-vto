@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual </title>
+  <!-- Load jQuery from a CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Load MDB CSS from a CDN -->
+  <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/compiled-4.20.0.min.css">
+
+  <!-- Load Slick Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+  <!-- Load Slick Carousel theme CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  
+  <!-- Load MDB JS from a CDN -->
+  <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled.min.js"></script>
+  <script type="text/javascript" src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/search-v4/search.min.js"></script>
+
+  <!-- Load Slick Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <!-- Load Fitbox JS -->
+  <script src="https://static.fittingbox.com/api/v1/fitmix.js" type="text/javascript"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="text-center">
+  <!-- Button trigger modal -->
+  <button id ="openVirtualRoom" class="btn btn-outline-primary"> 
+    <img src="https://www.optisia.sk/_nuxt/img/virtual-notice.dc34e5c.gif">
+    Enter the VIRTUAL ROOM
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="virtualRoom" tabindex="-1" role="dialog" aria-labelledby="virtualRoomTitle" aria-hidden="true">
+    <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center text-primary" id="virtualRoomTitle">VIRTUAL ROOM</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body p-0">
+          <!-- <div class="carousel-root"> -->
+            <div class="carousel-display">
+              <div id="my-fitmix-container"></div>
+            </div>
+            <div class="carousel-filter">
+              <label for="description" class="mr-3 text-sm text-white">SELECT</label>
+              <button id="filter-all" class="ml-2 btn btn-sm btn-rounded">All</button>
+              <button id="filter-man" class="ml-2 btn btn-sm btn-rounded">Man</button>
+              <button id="filter-woman" class="ml-2 btn btn-sm btn-rounded">Woman</button>
+            </div>              
+            <div class="carousel-container">
+              <div id="carousel">
+              </div>
+            </div>
+            <!-- </div> -->
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/custom_vto_api.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+.carousel-container {
+  width: calc(100% - 100px);
+  margin: auto;
+}
+
+.carousel-display {
+  position: relative;
+  width: 100%;
+  padding-top: 40%;
+  background-color: black;
+}
+
+#my-fitmix-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-filter {
+  padding: 10px 50px;
+  text-align: left;
+  background-color: #223875;
+}
+
+.carousel-filter button {
+  border: 1px solid white;
+  color: white;
+}
+
+.carousel-slide {
+  text-align: center;
+  margin: 5px 12px;
+}
+
+.carousel-slide img {
+  margin: auto;
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+}
+
+.slick-arrow {
+  transform: scale(1.5);
+}
+
+.slick-next:before, .slick-prev:before {
+  opacity: 0.85;
+  color: #9b9b9b;
+}
+
+.carousel-slide .slick-active {
+  transform: scale(1.1);
+}
